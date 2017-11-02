@@ -27,3 +27,12 @@ p {
   margin: 10px 0 0 0;
   display: block;
 }
+
+.news__delete {
+  position: relative;
+  float: right;
+}
+
+.test-input {
+  margin: 0 5px 5px 0;
+}

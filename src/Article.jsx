@@ -14,18 +14,25 @@ class Article extends Component {
     }
     readMore = (event) => {
         event.preventDefault();
-        this.setState({ visible: !this.state.visible });
+        this.setState({ visible: true });
+        this.props.onClick(event);
     }
 
     readLess = (event) => {
-        this.readMore(event);
+        event.preventDefault();
+        this.setState({ visible: false });
     }
 
+    delete = (event) => {
+        event.preventDefault();
+        this.props.onDelete();
+    }
     render() {
         const { author, text, bigText } = this.props.data;
         const visible = this.state.visible;
         return (
             <div className='article'>
+                <button className="news__delete" onClick={this.delete}>X</button>
                 <p className='news__author'>{author}:</p>
                 <p className="news__text">{text}</p>
                 <a href="#"
@@ -34,9 +41,9 @@ class Article extends Component {
                     More...
                 </a>
                 <a
-                  href="#"
-                  onClick={this.readLess}
-                  className={"news_readless " + (visible ? '' : 'none')}>
+                    href="#"
+                    onClick={this.readLess}
+                    className={"news_readless " + (visible ? '' : 'none')}>
                     Less...
                 </a>
                 <p className={"news__big-text " + (visible ? '' : 'none')}>{bigText}</p>
