@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "prop-types": "^15.6.0",
+    "pug": "^2.0.0-rc.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
@@ -16,6 +17,10 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-react-pug": "^3.2.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.10.0",
+    "eslint-plugin-react-pug": "0.0.4"
   }
 }
