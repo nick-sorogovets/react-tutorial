@@ -18,7 +18,7 @@ class Article extends Component {
     }
 
     readLess = (event) => {
-
+        this.readMore(event);
     }
 
     render() {
@@ -34,8 +34,9 @@ class Article extends Component {
                     More...
                 </a>
                 <a
-                    onClick={this.readLess}
-                    className={"news_readless" + (visible ? '' : 'none')}>
+                  href="#"
+                  onClick={this.readLess}
+                  className={"news_readless " + (visible ? '' : 'none')}>
                     Less...
                 </a>
                 <p className={"news__big-text " + (visible ? '' : 'none')}>{bigText}</p>
