@@ -14,7 +14,11 @@ class Article extends Component {
     }
     readMore = (event) => {
         event.preventDefault();
-        this.setState({ visible: true });
+        this.setState({ visible: !this.state.visible });
+    }
+
+    readLess = (event) => {
+
     }
 
     render() {
@@ -29,18 +33,15 @@ class Article extends Component {
                     className={"news__readmore " + (visible ? 'none' : '')}>
                     More...
                 </a>
+                <a
+                    onClick={this.readLess}
+                    className={"news_readless" + (visible ? '' : 'none')}>
+                    Less...
+                </a>
                 <p className={"news__big-text " + (visible ? '' : 'none')}>{bigText}</p>
             </div>
         )
     }
 }
-
-// Article.propTypes = {
-//     data: PropTypes.shape({
-//         author: PropTypes.string.isRequired,
-//         text: PropTypes.string.isRequired,
-//         bigText: PropTypes.string.isRequired,
-//     })
-// }
 
 export default Article;
