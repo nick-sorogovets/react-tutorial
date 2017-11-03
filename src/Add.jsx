@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './Add.css';
-class TestInput extends Component {
-  constructor(props) {
-    super(props);
-    this.onNewsSubmit = this.onNewsSubmit.bind(this);
-  }
+class Add extends Component {
   state = {
     author: '',
     title: '',
@@ -14,7 +9,7 @@ class TestInput extends Component {
   }
 
   componentDidMount = () => {
-    ReactDOM.findDOMNode(this.refs.author).focus();
+    this.refs.author.focus();
   }
 
   onNewsSubmit = (e) => {
@@ -24,9 +19,11 @@ class TestInput extends Component {
       text: '',
       isValid: false,
     });
+    this.refs.text.focus();
 
   }
-  onChange = (field, e) => {
+  onChange = (e) => {
+    const field = e._targetInst.ref._stringRef;
     const valid = e.target.form.checkValidity();
     this.setState({
       isValid: valid,
@@ -43,7 +40,7 @@ class TestInput extends Component {
             className="add__author"
             value={this.state.author}
             placeholder="Enter author"
-            onChange={this.onChange.bind(this, 'author')}
+            onChange={this.onChange}
             ref="author"
             required
           />
@@ -52,7 +49,7 @@ class TestInput extends Component {
             className="add__title"
             value={this.state.title}
             placeholder="Enter title"
-            onChange={this.onChange.bind(this, 'title')}
+            onChange={this.onChange}
             ref='title'
             required
           />
@@ -61,7 +58,7 @@ class TestInput extends Component {
             className="add__text"
             value={this.state.text}
             placeholder="News text"
-            onChange={this.onChange.bind(this, 'text')}
+            onChange={this.onChange}            
             required
             ref='text'
           ></textarea>
@@ -77,4 +74,4 @@ class TestInput extends Component {
   }
 }
 
-export default TestInput;
+export default Add;

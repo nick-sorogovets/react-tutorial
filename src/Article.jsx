@@ -15,7 +15,7 @@ class Article extends Component {
     readMore = (event) => {
         event.preventDefault();
         this.setState({ visible: true });
-        this.props.onClick(event);
+        this.props.onClick && this.props.onClick(event);
     }
 
     readLess = (event) => {
@@ -25,7 +25,7 @@ class Article extends Component {
 
     delete = (event) => {
         event.preventDefault();
-        this.props.onDelete();
+        this.props.onDelete && this.props.onDelete();
     }
     render() {
         const { author, title, text } = this.props.data;
