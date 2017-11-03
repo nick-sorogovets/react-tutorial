@@ -8,6 +8,7 @@ class TestInput extends Component {
   }
   state = {
     author: '',
+    title: '',
     text: '',
     isValid: false,
   }
@@ -19,7 +20,10 @@ class TestInput extends Component {
   onNewsSubmit = (e) => {
     e.preventDefault();
     this.props.onNewsAdded(this.state);
-    this.setState({text: '' });
+    this.setState({
+      text: '',
+      isValid: false,
+    });
 
   }
   onChange = (field, e) => {
@@ -43,7 +47,16 @@ class TestInput extends Component {
             ref="author"
             required
           />
-          <br />
+          <input
+            type="text"
+            className="add__title"
+            value={this.state.title}
+            placeholder="Enter title"
+            onChange={this.onChange.bind(this, 'title')}
+            ref='title'
+            required
+          />
+          <br/>
           <textarea
             className="add__text"
             value={this.state.text}

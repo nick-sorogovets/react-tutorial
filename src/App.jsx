@@ -4,22 +4,21 @@ import News from './News';
 import ShoppingList from './ShoppingList';
 import Add from './Add';
 
-// const my_news = [];
 const my_news = [
   {
     author: 'Саша Печкин',
-    text: 'В четчерг, четвертого числа...',
-    bigText: 'в четыре с четвертью часа четыре чёрненьких чумазеньких чертёнка чертили чёрными чернилами чертёж.'
+    title: 'В четчерг, четвертого числа...',
+    text: 'в четыре с четвертью часа четыре чёрненьких чумазеньких чертёнка чертили чёрными чернилами чертёж.'
   },
   {
     author: 'Просто Вася',
-    text: 'Считаю, что $ должен стоить 35 рублей!',
-    bigText: 'А евро 42!'
+    title: 'Считаю, что $ должен стоить 35 рублей!',
+    text: 'А евро 42!'
   },
   {
     author: 'Гость',
-    text: 'Бесплатно. Скачать. Лучший сайт - http://localhost:3000',
-    bigText: 'На самом деле платно, просто нужно прочитать очень длинное лицензионное соглашение'
+    title: 'Бесплатно. Скачать. Лучший сайт - http://localhost:3000',
+    text: 'На самом деле платно, просто нужно прочитать очень длинное лицензионное соглашение'
   }
 ];
 
@@ -28,12 +27,14 @@ class App extends Component {
     news: my_news
   }
   NewsAdded = (data) => {
-    const updateNews = this.state.news;
-    updateNews.push({
-      author: data.author,
-      text: data.text,
+    const news = this.state.news;
+    const { author, title, text} = data;
+    news.push({
+      author,
+      title,
+      text,
     });
-    this.setState({ news: updateNews })
+    this.setState({ news })
   }
   NewsDeleted = (index) => {
     const news = this.state.news;

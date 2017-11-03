@@ -8,8 +8,8 @@ class Article extends Component {
     static propTypes = {
         data: PropTypes.shape({
             author: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
             text: PropTypes.string.isRequired,
-            bigText: PropTypes.string.isRequired,
         })
     }
     readMore = (event) => {
@@ -28,13 +28,13 @@ class Article extends Component {
         this.props.onDelete();
     }
     render() {
-        const { author, text, bigText } = this.props.data;
+        const { author, title, text } = this.props.data;
         const visible = this.state.visible;
         return (
             <div className='article'>
                 <button className="news__delete" onClick={this.delete}>X</button>
                 <p className='news__author'>{author}:</p>
-                <p className="news__text">{text}</p>
+                <p className="news__text">{title}</p>
                 <a href="#"
                     onClick={this.readMore}
                     className={"news__readmore " + (visible ? 'none' : '')}>
@@ -46,7 +46,7 @@ class Article extends Component {
                     className={"news_readless " + (visible ? '' : 'none')}>
                     Less...
                 </a>
-                <p className={"news__big-text " + (visible ? '' : 'none')}>{bigText}</p>
+                <p className={"news__big-text " + (visible ? '' : 'none')}>{text}</p>
             </div>
         )
     }
