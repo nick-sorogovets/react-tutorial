@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import News from './News';
-import ShoppingList from './ShoppingList';
 import Add from './Add';
 
 const my_news = [
@@ -47,7 +46,6 @@ class App extends Component {
         <Add onNewsAdded={this.NewsAdded} />
         <h3>News</h3>
         <News data={this.state.news} onDelete={this.NewsDeleted} />
-        <ShoppingList />
       </div>
     );
   }
