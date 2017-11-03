@@ -11,7 +11,7 @@ class News extends Component {
         this.setState({ counter: this.state.counter + 1 })
     }
 
-    newsDelete = (index, e) => {
+    newsDelete = (index, event) => {
         this.props.onDelete && this.props.onDelete(index);
     }
 

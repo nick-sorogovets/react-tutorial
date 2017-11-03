@@ -30,6 +30,8 @@ class Article extends Component {
     render() {
         const { author, title, text } = this.props.data;
         const visible = this.state.visible;
+        const visibleClass = visible ? '' : 'none';
+        const nonVisibleClass = visible ? 'none' : '';
         return (
             <div className='article'>
                 <button className="news__delete" onClick={this.delete}>X</button>
@@ -37,15 +39,15 @@ class Article extends Component {
                 <p className="news__text">{title}</p>
                 <a href="#"
                     onClick={this.readMore}
-                    className={"news__readmore " + (visible ? 'none' : '')}>
+                    className={"news__readmore " + nonVisibleClass}>
                     More...
                 </a>
 
-                <p className={"news__big-text " + (visible ? '' : 'none')}>{text}</p>
+                <p className={"news__big-text " + visibleClass}>{text}</p>
                 <a
                     href="#"
                     onClick={this.readLess}
-                    className={"news_readless " + (visible ? '' : 'none')}>
+                    className={"news_readless " + visibleClass}>
                     Less...
                 </a>
             </div>

@@ -12,9 +12,9 @@ class Add extends Component {
     this.refs.author.focus();
   }
 
-  onNewsSubmit = (e) => {
-    e.preventDefault();
-    this.props.onNewsAdded(this.state);
+  onNewsSubmit = (event) => {
+    event.preventDefault();
+    this.props.onNewsAdded && this.props.onNewsAdded(this.state);
     this.setState({
       text: '',
       isValid: false,
@@ -22,12 +22,12 @@ class Add extends Component {
     this.refs.text.focus();
 
   }
-  onChange = (e) => {
-    const field = e._targetInst.ref._stringRef;
-    const valid = e.target.form.checkValidity();
+  onChange = (event) => {
+    const field = event._targetInst.ref._stringRef;
+    const valid = event.target.form.checkValidity();
     this.setState({
       isValid: valid,
-      [field]: e.target.value,
+      [field]: event.target.value,
     });
   }
 
