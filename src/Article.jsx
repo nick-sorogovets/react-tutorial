@@ -40,13 +40,14 @@ class Article extends Component {
                     className={"news__readmore " + (visible ? 'none' : '')}>
                     More...
                 </a>
+
+                <p className={"news__big-text " + (visible ? '' : 'none')}>{text}</p>
                 <a
                     href="#"
                     onClick={this.readLess}
                     className={"news_readless " + (visible ? '' : 'none')}>
                     Less...
                 </a>
-                <p className={"news__big-text " + (visible ? '' : 'none')}>{text}</p>
             </div>
         )
     }
